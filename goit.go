@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/urfave/cli"
 	"os"
+	"Goit/Object"
 )
 
 func main() {
@@ -20,6 +21,8 @@ func main() {
 			Usage: "add file to tmp",
 			Action: func(c *cli.Context) error {
 				fmt.Println("Add file to index filename is " ,c.Args().First())
+				curentpath, _ := os.Getwd()
+				Object.AddBlob(curentpath+"/../testgit/",c.Args().First())
 				return nil
 			},
 		},
